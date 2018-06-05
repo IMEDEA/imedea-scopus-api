@@ -15,7 +15,6 @@ class Auth:
             'Accept': 'application/json',
             'X-ELS-APIKey': api_key
         }
-        res = None
         try:
             res = utils.get_json_from_url(url, header)
             self.token = res['authenticate-response']['authtoken']
