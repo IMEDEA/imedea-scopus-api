@@ -41,10 +41,12 @@ if __name__ == '__main__':
     # ...and many more q.methods, see query.py
     # q.or_() q.open_par() q.close_par() allowed too
     
-                    
+    # Your center credentials                
     api = 'your_api_key_here'
     choice = 'your_choice_if_any_here'
-    tunnel_port = 1234 # If working with a tunnel to an allowed ip
+    # If working with a tunnel to an allowed ip
+    # set to None or do not user parameter if not necessary
+    tunnel_port = 1234
 
     # Main elsclient object construction
     ec = elsclient.ELSClient(api=api, choice=choice, tunnel_port=tunnel_port)
