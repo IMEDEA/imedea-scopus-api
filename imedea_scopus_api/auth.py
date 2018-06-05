@@ -22,7 +22,7 @@ class Auth:
         except urllib2.HTTPError as e:
             print "Error authenticating"
             utils.print_http_error(e)
-            exit(1)
+            exit(-1)
 
     def getheader(self):
         return {
