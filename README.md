@@ -46,7 +46,7 @@ if __name__ == '__main__':
     tunnel_port = 1234 # If working with a tunnel to an allowed ip
 
     # Main elsclient object construction
-    ec = elsclient.ELSClient(api, choice=choice, tunnel_port=tunnel_port)
+    ec = elsclient.ELSClient(api=api, choice=choice, tunnel_port=tunnel_port)
 
     # Search of data via query object created before with many configurable
     # parameters
