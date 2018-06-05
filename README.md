@@ -27,7 +27,7 @@ if __name__ == '__main__':
     q.and_()
     q.subject_area(q.SBJ_AREA_PHYSICS_AND_ASTRONOMY, q.SBJ_AREA_EARTH_AND_PLANETARY_SCIENCES)
     q.and_()
-    q.publication_year('>', '2011')
+    q.publication_year('>', '2011') # <,=,> not allowed by scopus >= nor <=
     q.and_()
     q.publication_year('<', '2014')
     q.and_()
