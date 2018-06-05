@@ -98,14 +98,17 @@ if __name__ == '__main__':
     print affiliation_tools.get_name(affiliation)
     print affiliation_tools.get_city(affiliation) # and so on
     # you can handle affiliation json by your own too
+    print json.dumps(affiliation)
     
     # Author data
     author = ec.get_author_by_author_id('author_id_here')
     # or author = ec.get_author_by_eid('author_eid_here')
     # or author=ec.get_author_by_orcid('author_orcid_here')
     # NO author tools yet :( author field access must be done "by hand"
+    print json.dumps(author)
     
     # Journal data
     journal = ec.get_journal_metrics('issn_here', initial_year=1999, end_year=2002)
     # No journal tools neither :(
+    print json.dumps(journal)
 ```
