@@ -40,6 +40,8 @@ if __name__ == '__main__':
     q.source_type(q.SRC_TYPE_JOURNAL)
     # ...and many more q.methods, see query.py
     # q.or_() q.open_par() q.close_par() allowed too
+    # Any query rule can be set with many values separated by commas,
+    # in this case or are applied q.author('Balle', 'Vizoso'....)
     
     # Your center credentials                
     api = 'your_api_key_here'
