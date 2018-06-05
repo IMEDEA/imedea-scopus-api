@@ -10,7 +10,7 @@ Install from github repository
 or upgrade adding --upgrade
 
 `pip2 install --upgrade git+https://github.com/IMEDEA/imedea-scopus-api`
-## Use examples
+## Example usage
 Use of and IDE with autocomplete capabilities such as PyCharm is recommended.
 
 ```python
