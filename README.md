@@ -89,7 +89,7 @@ if __name__ == '__main__':
     # We can retrieve affiliation info too with
     affiliation = ec.get_affiliation_by_affiliation_id('aff_id_here')
     # or
-    # affiliation = ec.get_affiliation_by_eid()
+    # affiliation = ec.get_affiliation_by_eid('aff_eid_here')
     # And affiliations tools
     print affiliation_tools.get_name(affiliation)
     print affiliation_tools.get_city(affiliation) # and so on
@@ -97,10 +97,11 @@ if __name__ == '__main__':
     
     # Author data
     author = ec.get_author_by_author_id('author_id_here')
-    # or author = ec.get_author_by_eid() or author=ec.get_author_by_orcid()
-    # NO author tools yet :(
+    # or author = ec.get_author_by_eid('author_eid_here')
+    # or author=ec.get_author_by_orcid('author_orcid_here')
+    # NO author tools yet :( author data retrieve must be done "by hand"
     
     # Journal data
     journal = ec.get_journal_metrics('issn_here', initial_year=1999, end_year=2002)
-    # No journal tools neither :( 
+    # No journal tools neither :(
 ```
