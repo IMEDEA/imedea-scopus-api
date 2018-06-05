@@ -251,7 +251,7 @@ def get_source_issn(json_source, standard_format = False):
     issn = None
     issn_json = get_source(json_source)
     if not 'issn' in issn_json:
-    	return None
+        return None
     issn_json = issn_json['issn']
     if isinstance(issn_json, unicode):
         return str(issn_json), None
@@ -269,7 +269,7 @@ def get_source_eissn(json_source, standard_format = False):
     eissn = None
     issn_json = get_source(json_source)
     if not 'issn' in issn_json:
-    	return None
+        return None
     issn_json = issn_json['issn']
     if isinstance(issn_json, unicode):
         return None
