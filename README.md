@@ -2,7 +2,7 @@
 Python2 implementation for SCOPUS API.
 This library works by retrieving data in JSON format.
 
-##Installation
+#Installation
 Install from github repository
 
 `pip2 install git+https://github.com/IMEDEA/imedea-scopus-api`
@@ -10,7 +10,7 @@ Install from github repository
 or upgrade adding --upgrade
 
 `pip2 install --upgrade git+https://github.com/IMEDEA/imedea-scopus-api`
-##Use examples
+#Use examples
 Use of and IDE with autocomplete capabilities such as PyCharm is recommended.
 
 ```python
