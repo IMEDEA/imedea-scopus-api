@@ -42,6 +42,7 @@ if __name__ == '__main__':
     # q.or_() q.open_par() q.close_par() allowed too
     # Any query rule can be set with many values separated by commas,
     # in this case "ors" are applied q.author('Balle', 'Vizoso'....)
+    # its the same as q.author('Balle').or_().q.author('Vizoso')...
     
     # Your center credentials                
     api = 'your_api_key_here'
