@@ -223,7 +223,7 @@ class ELSClient:
     def get_all_identifiers(self, query):
         if not isinstance(query, Query):
             logging.fatal("query parameter must be an instance of query. Exiting...")
-            exit(1)
+            exit(-1)
         try:
             j = self.scopus_search(query, start=0, field='identifier')
         except Exception as e:
