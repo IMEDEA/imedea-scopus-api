@@ -103,7 +103,7 @@ if __name__ == '__main__':
     author = ec.get_author_by_author_id('author_id_here')
     # or author = ec.get_author_by_eid('author_eid_here')
     # or author=ec.get_author_by_orcid('author_orcid_here')
-    # NO author tools yet :( author data retrieve must be done "by hand"
+    # NO author tools yet :( author field access must be done "by hand"
     
     # Journal data
     journal = ec.get_journal_metrics('issn_here', initial_year=1999, end_year=2002)
