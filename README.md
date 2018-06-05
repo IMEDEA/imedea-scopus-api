@@ -60,10 +60,10 @@ if __name__ == '__main__':
         sort=[ec.SORT_PUBLICATION_YEAR_ASC, ec.SORT_PUBLICATION_NAME_ASC, ec.SORT_CREATOR_DESC]
     )
     
-    #Print all results
+    # Print all results
     print json.dumps(search_result)
     
-    #We could loop over publications with
+    # We could loop over publications with
     if search_result:
         for pub in search_result['search-results']['entry']:
             print json.dumps(pub)
@@ -72,8 +72,8 @@ if __name__ == '__main__':
     # and not count needed here, it's done internally)
     scopus_identifiers = ec.get_all_identifiers(q) # The same query
 
-    # Now we can retrieve abstract with
     for scopus_identifier in scopus_identifiers:
+        # Now we can retrieve abstract with
         abstract = ec.get_abstract_by_scopus_id(scopus_identifier)
         print json.dumps(abstract)
         #We have abstract tools too to get particular information:
