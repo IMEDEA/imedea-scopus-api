@@ -53,12 +53,12 @@ def get_doi_url(json_source):
 
 
 def get_type(json_source):
-    abs = get_root(json_source)
-    item = abs['item'] if 'item' in abs else None
-    type = None
+    root = get_root(json_source)
+    item = root['item'] if 'item' in root else None
+    abstract_type = None
     if item:
-     type = item['bibrecord']['head']['citation-info']['citation-type']['@code']
-    return type
+        abstract_type = item['bibrecord']['head']['citation-info']['citation-type']['@code']
+    return abstract_type
 
 
 def get_issue_identifier_number(json_source):
