@@ -52,7 +52,7 @@ if __name__ == '__main__':
     ec = elsclient.ELSClient(api=api, choice=choice, tunnel_port=tunnel_port)
 
     # Search of data via query object created before with many configurable
-    # parameters
+    # parameters (default are ok to use too)
     search_result = ec.scopus_search(
         q,
         suppress_nav_links= True,
