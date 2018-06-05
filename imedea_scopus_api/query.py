@@ -211,7 +211,7 @@ class Query:
                 continue
             print (str(dc) + " not instance of DocType query helper, "
                    "use any DOC_TYPE_* attributes of Query class. Exiting...")
-            exit(1)
+            exit(-1)
         if l:
             l.pop()
         self.__extend('DOCTYPE', *tuple(l))
@@ -327,7 +327,7 @@ class Query:
         if not isinstance(subquery, Query):
             print ("References is a combined field for REFAUTH, REFTITLE, REFSRCTITLE, REFPUBYEAR AND REFPAGE. "
                    "Create a query object with these fields to perform a combined search")
-            exit(1)
+            exit(-1)
         self.__extend('REF', *tuple(subquery.query))
         return self
 
@@ -380,7 +380,7 @@ class Query:
                 continue
             print (str(st) + " not instance of SourceType query helper, "
                              "use any SRC_TYPE_* attributes of Query class. Exiting...")
-            exit(1)
+            exit(-1)
         if l:
             l.pop()
         self.__extend('SRCTYPE', *tuple(l))
@@ -394,7 +394,7 @@ class Query:
                 continue
             print (str(sa) + " not instance of SubjectArea query helper, "
                              "use any SBJ_AREA_* attributes of Query class. Exiting...")
-            exit(1)
+            exit(-1)
         if l:
             l.pop()
         self.__extend('SUBJAREA', *tuple(l))
