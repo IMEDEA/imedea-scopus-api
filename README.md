@@ -38,7 +38,8 @@ if __name__ == '__main__':
                     q.DOC_TYPE_NOTE)
     q.and_()
     q.source_type(q.SRC_TYPE_JOURNAL)
-    # ...and many more q. methods, see query.py
+    # ...and many more q.methods, see query.py
+    # q.or_() q.open_par() q.close_par() allowed too
     
                     
     api = 'your_api_key_here'
