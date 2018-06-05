@@ -102,5 +102,5 @@ if __name__ == '__main__':
     
     # Journal data
     journal = ec.get_journal_metrics('issn_here', initial_year=1999, end_year=2002)
-    # No journal data neither :( 
+    # No journal tools neither :( 
 ```
