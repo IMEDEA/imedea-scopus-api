@@ -40,7 +40,7 @@ if __name__ == '__main__':
     q.source_type(q.SRC_TYPE_JOURNAL)
     # ...and many more q.methods, see query.py
     # q.or_() q.open_par() q.close_par() allowed too
-    # Any query rule can be set with many values separated by commas,
+    # Many query rules (not all) can be set with many values separated by commas,
     # in this case "ors" are applied q.author('Balle', 'Vizoso'....)
     # its the same as q.author('Balle').or_().author('Vizoso')...
     # Note q returns self, so rules can be set as q.rule1.rule2...
