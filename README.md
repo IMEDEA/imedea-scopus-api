@@ -94,7 +94,7 @@ if __name__ == '__main__':
     
     # Author data
     author = ec.get_author_by_author_id('author_id_here')
-    # or author = ec.get_author_by_eid() or ec.get_author_by_orcid()
+    # or author = ec.get_author_by_eid() or author=ec.get_author_by_orcid()
     # NO author tools yet :(
     
     # Journal data
