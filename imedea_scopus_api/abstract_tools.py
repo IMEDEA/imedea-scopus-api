@@ -82,15 +82,18 @@ def is_related_to_center(json_source, affiliation_id):
 
 
 def has_foreign_affiliations(json_source, affiliation_id):
-    affiliation_list = get_root(json_source)['affiliation']
+    root = get_root(json_source)
+    affiliation_list = root['affiliation'] if 'affiliation' in root else None
     if isinstance(affiliation_list, list):
         for affiliation in affiliation_list:
             id = affiliation['@id'] if '@id' in affiliation else None
             if affiliation_id != id:
                 return True
-    else:
+    elif affiliation_list:
         id = affiliation_list['@id'] if '@id' in affiliation_list else None
         return affiliation_id != id
+    else:
+        return None
 
 
 def get_language(json_source):
