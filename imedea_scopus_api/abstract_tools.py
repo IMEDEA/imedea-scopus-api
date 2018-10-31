@@ -258,12 +258,17 @@ def get_source_issn(json_source, standard_format = False):
         return None
     issn_json = issn_json['issn']
     if isinstance(issn_json, unicode):
-        return str(issn_json), None
+        issn = str(issn_json)
+        if standard_format:
+            issn = issn[:4] + "-" + issn[4:]
+        return issn
     if not isinstance(issn_json, list):
         issn_json = [issn_json]
     for o in issn_json:
         if o['@type'] == 'print':
             issn = o['$']
+    if isinstance(issn, tuple):
+        issn = issn[0]
     if issn and standard_format:
         issn = issn[:4] + "-" + issn[4:] #if issn else None
     return issn
@@ -276,12 +281,17 @@ def get_source_eissn(json_source, standard_format = False):
         return None
     issn_json = issn_json['issn']
     if isinstance(issn_json, unicode):
-        return None
+        eissn = str(issn_json)
+        if standard_format:
+            eissn = eissn[:4] + "-" + eissn[4:]
+        return eissn
     if not isinstance(issn_json, list):
         issn_json = [issn_json]
     for o in issn_json:
         if o['@type'] == 'electronic':
             eissn = o['$']
+    if isinstance(eissn, tuple):
+        eissn = eissn[0]
     if eissn and standard_format:
         eissn = eissn[:4] + "-" + eissn[4:]
     return eissn
