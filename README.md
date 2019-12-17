@@ -85,7 +85,7 @@ if __name__ == '__main__':
         print json.dumps(abstract)
         #We have abstract tools too to get particular information:
         print abstract_tools.get_title(abstract)
-        print abstract_tools.get_citedby_count(abstract_tools)
+        print abstract_tools.get_citedby_count(abstract)
         print abstract_tools.get_authors(abstract)
         print abstract_tools.get_doi(abstract)
         # ... and many more methods to retrieve info from abstract
