@@ -1,10 +1,10 @@
-import urllib
-from urllib2 import HTTPError
+import urllib.request, urllib.parse, urllib.error
+from urllib.error import HTTPError
 import logging
 
-import utils
-from auth import Auth
-from query import Query
+from . import utils
+from .auth import Auth
+from .query import Query
 
 
 class View:
@@ -58,7 +58,7 @@ class ELSClient:
     def __get_header(self):
         new_header = self.header
         if self.custom_header:
-            for k, v in self.custom_header.iteritems():
+            for k, v in self.custom_header.items():
                 new_header[k] = v
         return new_header
 
@@ -88,7 +88,7 @@ class ELSClient:
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
         except HTTPError as e:
-            print "Error getting abstract"
+            print("Error getting abstract")
             utils.print_http_error(e)
             raise e
         return json_data
@@ -112,7 +112,7 @@ class ELSClient:
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
         except HTTPError as e:
-            print "Error retrieving author information"
+            print("Error retrieving author information")
             utils.print_http_error(e)
             raise e
         return json_data
@@ -133,7 +133,7 @@ class ELSClient:
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
         except HTTPError as e:
-            print "Error retrieving affiliation information"
+            print("Error retrieving affiliation information")
             utils.print_http_error(e)
             raise e
         return json_data
@@ -152,7 +152,7 @@ class ELSClient:
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
         except HTTPError as e:
-            print "Error retrieving journal metrics -> " + url
+            print("Error retrieving journal metrics -> " + url)
             utils.print_http_error(e)
             raise e
         return json_data
@@ -180,7 +180,7 @@ class ELSClient:
         if not isinstance(suppress_nav_links, bool):
             print("suppress_nav_links parameter should be either True or False. Exiting...")
             exit(-1)
-        query_quoted = urllib.quote_plus(query.get_query())
+        query_quoted = urllib.parse.quote_plus(query.get_query())
         url = "http://api.elsevier.com/content/search/scopus?" \
               "view=" + view.type + \
               "&query=" + query_quoted + \
@@ -192,10 +192,10 @@ class ELSClient:
         url += "&start=" + str(start) + "&count=" + str(count)
         if sort:
             if not isinstance(sort, list) and not isinstance(sort, tuple):
-                print "Sort parameter must be either a list or tuple of a maximum of 3 Sort elements. Program will exit..."
+                print("Sort parameter must be either a list or tuple of a maximum of 3 Sort elements. Program will exit...")
                 exit(-1)
             if len(sort) > 3:
-                print "Sort parameter has a maximum of 3 elements. Program will exit..."
+                print("Sort parameter has a maximum of 3 elements. Program will exit...")
                 exit(-1)
             l = []
             for s in sort:
@@ -211,7 +211,7 @@ class ELSClient:
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
         except HTTPError as e:
-            print "Error while retrieving information from SCOPUS:"
+            print("Error while retrieving information from SCOPUS:")
             utils.print_http_error(e)
             raise e
 
