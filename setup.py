@@ -16,7 +16,8 @@ setup(
     packages=find_packages(exclude=('testing', 'docs')),
     install_requires=[
         'PySocks',
-        'msgpack-python', 'socks'
+        'msgpack-python',
+        'socks'
     ]
 )
 
