@@ -1,6 +1,6 @@
 import ssh_tunnel
 import utils
-import urllib2
+import urllib
 
 
 class Auth:
@@ -18,7 +18,8 @@ class Auth:
         try:
             res = utils.get_json_from_url(url, header)
             self.token = res['authenticate-response']['authtoken']
-        except urllib2.HTTPError as e:
+            urllib.addbase;
+        except urllib.error.HTTPError as e:
             print "Error authenticating"
             utils.print_http_error(e)
             exit(-1)
