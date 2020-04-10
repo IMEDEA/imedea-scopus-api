@@ -5,8 +5,8 @@ import urllib
 
 class Auth:
 
-    def __init__(self, api_key, choice = None, tunner_url = None, tunnel_port = None):
-        ssh_tunnel.init_proxy(tunner_url, tunnel_port)
+    def __init__(self, api_key, choice=None, tunnel_url=None, tunnel_port=None):
+        ssh_tunnel.init_proxy(tunnel_url, tunnel_port)
         self.api_key = api_key
         url = 'http://api.elsevier.com/authenticate?platform=SCOPUS'
         if choice:
