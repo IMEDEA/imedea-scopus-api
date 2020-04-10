@@ -1,3 +1,4 @@
+import urllib
 import urllib2
 import logging
 
@@ -179,7 +180,7 @@ class ELSClient:
         if not isinstance(suppress_nav_links, bool):
             print("suppress_nav_links parameter should be either True or False. Exiting...")
             exit(-1)
-        query_quoted = urllib2.quote_plus(query.get_query())
+        query_quoted = urllib.quote_plus(query.get_query())
         url = "http://api.elsevier.com/content/search/scopus?" \
               "view=" + view.type + \
               "&query=" + query_quoted + \
