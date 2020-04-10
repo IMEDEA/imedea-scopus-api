@@ -46,8 +46,8 @@ class ELSClient:
     SORT_VOLUME_ASC = Sort('+volume')
     SORT_VOLUME_DESC = Sort('-volume')
 
-    def __init__(self, api_key, choice = None, tunnel_port = None):
-        self.auth = Auth(api_key, choice = choice, tunnel_port = tunnel_port)
+    def __init__(self, api_key, choice=None, tunnel_url=None, tunnel_port=None):
+        self.auth = Auth(api_key, choice=choice, tunnel_url=tunnel_url, tunnel_port=tunnel_port)
         self.header = self.auth.getheader()
         self.custom_header = dict()
 

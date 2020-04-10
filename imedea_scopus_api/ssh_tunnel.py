@@ -2,10 +2,12 @@ import socket
 import socks
 
 
-def init_proxy(tunnel_port):
+def init_proxy(tunnerl_url, tunnel_port):
     if tunnel_port:
+        if not tunnerl_url:
+            tunnerl_url = "127.0.0.1"
         try:
-            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", int(tunnel_port))
+            socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, tunnerl_url, int(tunnel_port))
             socket.socket = socks.socksocket
             # Connection check
             # urllib2.urlopen("http://127.0.0.1")
