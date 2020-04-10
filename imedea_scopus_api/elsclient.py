@@ -1,4 +1,4 @@
-import urllib
+import urllib2
 import logging
 
 import utils
@@ -86,7 +86,7 @@ class ELSClient:
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
-        except urllib.errors.HTTPError as e:
+        except urllib2.HTTPError as e:
             print "Error getting abstract"
             utils.print_http_error(e)
             raise e
@@ -110,7 +110,7 @@ class ELSClient:
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
-        except urllib.errors.HTTPError as e:
+        except urllib2.HTTPError as e:
             print "Error retrieving author information"
             utils.print_http_error(e)
             raise e
@@ -131,7 +131,7 @@ class ELSClient:
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
-        except urllib.errors.HTTPError as e:
+        except urllib2.HTTPError as e:
             print "Error retrieving affiliation information"
             utils.print_http_error(e)
             raise e
@@ -150,7 +150,7 @@ class ELSClient:
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
-        except urllib.errors.HTTPError as e:
+        except urllib2.HTTPError as e:
             print "Error retrieving journal metrics -> " + url
             utils.print_http_error(e)
             raise e
@@ -209,7 +209,7 @@ class ELSClient:
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
-        except urllib.errors.HTTPError as e:
+        except urllib2.HTTPError as e:
             print "Error while retrieving information from SCOPUS:"
             utils.print_http_error(e)
             raise e
