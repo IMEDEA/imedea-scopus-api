@@ -6,7 +6,7 @@ with open('LICENSE') as f:
 
 setup(
     name='imedea_scopus_api',
-    version='0.1.2',
+    version='0.1.3',
     description='Imedea scopus access library',
     long_description=None,
     author='Jeroni Brunet Rosselló',
