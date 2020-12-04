@@ -17,7 +17,6 @@ class Auth:
         }
         try:
             res = utils.get_json_from_url(url, header)
-            print res
             self.token = res['authenticate-response']['authtoken']
         except urllib2.HTTPError as e:
             print "Error authenticating"
