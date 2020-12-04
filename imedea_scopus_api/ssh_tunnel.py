@@ -10,7 +10,7 @@ def init_proxy(tunnerl_url, tunnel_port):
             socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, tunnerl_url, int(tunnel_port))
             socket.socket = socks.socksocket
             # Connection check
-            # urllib2.urlopen("http://127.0.0.1")
+            # urllib2.urlopen("https://127.0.0.1")
         except socks.ProxyConnectionError:
             print ("Tunnel port sent "
                    "{}"

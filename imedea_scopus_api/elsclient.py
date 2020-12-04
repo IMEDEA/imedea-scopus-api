@@ -83,7 +83,7 @@ class ELSClient:
         return self.__get_abstract(pii, 'pii')
 
     def __get_abstract(self, identifier, identifier_type):
-        url = "http://api.elsevier.com/content/abstract/" + identifier_type + "/" + identifier
+        url = "https://api.elsevier.com/content/abstract/" + identifier_type + "/" + identifier
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
@@ -107,7 +107,7 @@ class ELSClient:
         return self.__get_author(orcid, 'orcid')
 
     def __get_author(self, identifier, identifier_type):
-        url = "http://api.elsevier.com/content/author/" + identifier_type + "/" + identifier
+        url = "https://api.elsevier.com/content/author/" + identifier_type + "/" + identifier
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
@@ -128,7 +128,7 @@ class ELSClient:
         return self.__get_affiliation(eid, 'eid')
 
     def __get_affiliation(self, identifier, identifier_type):
-        url = "http://api.elsevier.com/content/affiliation/" + identifier_type + "/" + identifier
+        url = "https://api.elsevier.com/content/affiliation/" + identifier_type + "/" + identifier
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
@@ -143,7 +143,7 @@ class ELSClient:
     #
     def get_journal_metrics(self, issn, initial_year=1900, end_year=2100):
         url = ''.join((
-                "http://api.elsevier.com/content/serial/title?issn=" + issn,
+                "https://api.elsevier.com/content/serial/title?issn=" + issn,
                 "&view=",
                 self.VIEW_STANDARD.type,
                 "&date=" + str(initial_year) + "-" + str(end_year)
@@ -181,7 +181,7 @@ class ELSClient:
             print("suppress_nav_links parameter should be either True or False. Exiting...")
             exit(-1)
         query_quoted = urllib.quote_plus(query.get_query())
-        url = "http://api.elsevier.com/content/search/scopus?" \
+        url = "https://api.elsevier.com/content/search/scopus?" \
               "view=" + view.type + \
               "&query=" + query_quoted + \
               "&suppressNavLinks=" + str(suppress_nav_links).lower()
