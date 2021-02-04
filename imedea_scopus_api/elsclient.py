@@ -181,7 +181,7 @@ class ELSClient:
             print("suppress_nav_links parameter should be either True or False. Exiting...")
             exit(-1)
         query_quoted = urllib.quote_plus(query.get_query())
-        url = "https://api.elsevier.com/content/search/sciencedirect?" \
+        url = "https://api.elsevier.com/content/search/scopus?" \
               "view=" + view.type + \
               "&query=" + query_quoted + \
               "&suppressNavLinks=" + str(suppress_nav_links).lower()
