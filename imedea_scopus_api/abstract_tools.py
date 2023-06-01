@@ -129,13 +129,13 @@ def get_keywords(json_source):
 def get_isbn(json_source, standard_format = False):
     isbn = None
     isbn_root = get_root(json_source)['item']['bibrecord']['head']['source']
-    isbn_entity = isbn_root['isbn'] if 'isbn' in isbn_root.keys() else None
+    isbn_entity = isbn_root['isbn'] if 'isbn' in list(isbn_root.keys()) else None
     if isinstance(isbn_entity, list):
         for isbn_object in isbn_entity:
-            if isbn_object['@type'] == 'print' if '@type' in isbn_object.keys() else None:
+            if isbn_object['@type'] == 'print' if '@type' in list(isbn_object.keys()) else None:
                 isbn = isbn_object['$']
     elif isinstance(isbn_entity, dict):
-        if isbn_entity['@type'] == 'print' if '@type' in isbn_entity.keys() else None:
+        if isbn_entity['@type'] == 'print' if '@type' in list(isbn_entity.keys()) else None:
             isbn = isbn_entity['$']
     if isbn and standard_format:
         isbn = isbn[0:3] + '-' + isbn[3] + '-' + isbn[4:7] + '-' + isbn[7:12] + '-' + isbn[12]
@@ -145,13 +145,13 @@ def get_isbn(json_source, standard_format = False):
 def get_eisbn(json_source, standard_format = False):
     isbn = None
     isbn_root = get_root(json_source)['item']['bibrecord']['head']['source']
-    isbn_entity = isbn_root['isbn'] if 'isbn' in isbn_root.keys() else None
+    isbn_entity = isbn_root['isbn'] if 'isbn' in list(isbn_root.keys()) else None
     if isinstance(isbn_entity, list):
         for isbn_object in isbn_entity:
-            if isbn_object['@type'] == 'electronic' if '@type' in isbn_object.keys() else None:
+            if isbn_object['@type'] == 'electronic' if '@type' in list(isbn_object.keys()) else None:
                 isbn = isbn_object['$']
     elif isinstance(isbn_entity, dict):
-        if isbn_entity['@type'] == 'electronic' if '@type' in isbn_entity.keys() else None:
+        if isbn_entity['@type'] == 'electronic' if '@type' in list(isbn_entity.keys()) else None:
             isbn = isbn_entity['$']
     if isbn and standard_format:
         isbn = isbn[0:3] + '-' + isbn[3] + '-' + isbn[4:7] + '-' + isbn[7:12] + '-' + isbn[12]
@@ -195,7 +195,7 @@ def get_author_affiliations_id(author_json):
 
 def get_source(json_source):
     source = None
-    if 'item' in json_source['abstracts-retrieval-response'].keys():
+    if 'item' in list(json_source['abstracts-retrieval-response'].keys()):
         source = json_source['abstracts-retrieval-response']['item']['bibrecord']['head']['source']
     return source
 
@@ -256,7 +256,7 @@ def get_source_issn(json_source, standard_format = False):
     if not 'issn' in issn_json:
         return None
     issn_json = issn_json['issn']
-    if isinstance(issn_json, unicode):
+    if isinstance(issn_json, str):
         issn = str(issn_json)
         if standard_format:
             issn = issn[:4] + "-" + issn[4:]
@@ -279,7 +279,7 @@ def get_source_eissn(json_source, standard_format = False):
     if not 'issn' in issn_json:
         return None
     issn_json = issn_json['issn']
-    if isinstance(issn_json, unicode):
+    if isinstance(issn_json, str):
         eissn = str(issn_json)
         if standard_format:
             eissn = eissn[:4] + "-" + eissn[4:]

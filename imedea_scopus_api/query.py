@@ -209,8 +209,8 @@ class Query:
                 l.append(dc.get_value())
                 l.append("OR")
                 continue
-            print (str(dc) + " not instance of DocType query helper, "
-                   "use any DOC_TYPE_* attributes of Query class. Exiting...")
+            print((str(dc) + " not instance of DocType query helper, "
+                   "use any DOC_TYPE_* attributes of Query class. Exiting..."))
             exit(-1)
         if l:
             l.pop()
@@ -378,8 +378,8 @@ class Query:
                 l.append(st.get_value())
                 l.append("OR")
                 continue
-            print (str(st) + " not instance of SourceType query helper, "
-                             "use any SRC_TYPE_* attributes of Query class. Exiting...")
+            print((str(st) + " not instance of SourceType query helper, "
+                             "use any SRC_TYPE_* attributes of Query class. Exiting..."))
             exit(-1)
         if l:
             l.pop()
@@ -392,8 +392,8 @@ class Query:
                 l.append(sa.get_value())
                 l.append("OR")
                 continue
-            print (str(sa) + " not instance of SubjectArea query helper, "
-                             "use any SBJ_AREA_* attributes of Query class. Exiting...")
+            print((str(sa) + " not instance of SubjectArea query helper, "
+                             "use any SBJ_AREA_* attributes of Query class. Exiting..."))
             exit(-1)
         if l:
             l.pop()
