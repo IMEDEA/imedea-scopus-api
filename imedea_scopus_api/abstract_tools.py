@@ -1,5 +1,4 @@
 import logging
-import json
 
 def get_root(json_source):
     return json_source['abstracts-retrieval-response']

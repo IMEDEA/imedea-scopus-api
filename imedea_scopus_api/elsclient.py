@@ -47,8 +47,8 @@ class ELSClient:
     SORT_VOLUME_ASC = Sort('+volume')
     SORT_VOLUME_DESC = Sort('-volume')
 
-    def __init__(self, api_key, choice = None, tunnel_port = None):
-        self.auth = Auth(api_key, choice = choice, tunnel_port = tunnel_port)
+    def __init__(self, api_key, choice=None, tunnel_url=None, tunnel_port=None):
+        self.auth = Auth(api_key, choice=choice, tunnel_url=tunnel_url, tunnel_port=tunnel_port)
         self.header = self.auth.getheader()
         self.custom_header = dict()
 
@@ -83,7 +83,7 @@ class ELSClient:
         return self.__get_abstract(pii, 'pii')
 
     def __get_abstract(self, identifier, identifier_type):
-        url = "http://api.elsevier.com/content/abstract/" + identifier_type + "/" + identifier
+        url = "https://api.elsevier.com/content/abstract/" + identifier_type + "/" + identifier
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
@@ -107,12 +107,13 @@ class ELSClient:
         return self.__get_author(orcid, 'orcid')
 
     def __get_author(self, identifier, identifier_type):
-        url = "http://api.elsevier.com/content/author/" + identifier_type + "/" + identifier
+        url = "https://api.elsevier.com/content/author/" + identifier_type + "/" + identifier
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
         except HTTPError as e:
             print("Error retrieving author information")
+
             utils.print_http_error(e)
             raise e
         return json_data
@@ -128,10 +129,11 @@ class ELSClient:
         return self.__get_affiliation(eid, 'eid')
 
     def __get_affiliation(self, identifier, identifier_type):
-        url = "http://api.elsevier.com/content/affiliation/" + identifier_type + "/" + identifier
+        url = "https://api.elsevier.com/content/affiliation/" + identifier_type + "/" + identifier
         json_data = None
         try:
             json_data = utils.get_json_from_url(url, self.__get_header())
+
         except HTTPError as e:
             print("Error retrieving affiliation information")
             utils.print_http_error(e)
@@ -143,7 +145,7 @@ class ELSClient:
     #
     def get_journal_metrics(self, issn, initial_year=1900, end_year=2100):
         url = ''.join((
-                "http://api.elsevier.com/content/serial/title?issn=" + issn,
+                "https://api.elsevier.com/content/serial/title?issn=" + issn,
                 "&view=",
                 self.VIEW_STANDARD.type,
                 "&date=" + str(initial_year) + "-" + str(end_year)

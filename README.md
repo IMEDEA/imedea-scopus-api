@@ -50,10 +50,11 @@ if __name__ == '__main__':
     choice = 'your_choice_if_any_here'
     # If working with a ssh tunnel to an allowed ip
     # set to None or do not user parameter if not necessary
+    tunnel_url = 'localhost'
     tunnel_port = 1234
 
     # Main elsclient object construction
-    ec = elsclient.ELSClient(api=api, choice=choice, tunnel_port=tunnel_port)
+    ec = elsclient.ELSClient(api=api, choice=choice, tunnel_url=tunnel_url, tunnel_port=tunnel_port)
 
     # Search of data via query object created before with many configurable
     # parameters (default are ok to use too)

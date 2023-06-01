@@ -5,10 +5,11 @@ import urllib.request, urllib.error, urllib.parse
 
 class Auth:
 
-    def __init__(self, api_key, choice = None, tunnel_port = None):
-        ssh_tunnel.init_proxy(tunnel_port)
+    def __init__(self, api_key, choice=None, tunnel_url=None, tunnel_port=None):
+        if tunnel_url and tunnel_port:
+            ssh_tunnel.init_proxy(tunnel_url, tunnel_port)
         self.api_key = api_key
-        url = 'http://api.elsevier.com/authenticate?platform=SCOPUS'
+        url = 'https://api.elsevier.com/authenticate?platform=SCOPUS'
         if choice:
             url += '&choice=' + choice
         header = {
